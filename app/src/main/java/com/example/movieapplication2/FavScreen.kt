@@ -35,7 +35,7 @@ fun FavScreen(navController: NavController = rememberNavController(),
                         }
                     )
                     Spacer(modifier = Modifier.width(20.dp))
-                    Text(text = "My Favourie Movies")
+                    Text(text = "My Favourite Movies")
                 }
             }
         }) {
@@ -57,11 +57,9 @@ fun MainContent(movies: List<Movie> = getMovies().take(2)){
                 Column() {
                     MovieRow(movie = movie)
 
-                   // Spacer(modifier = Modifier.height(8.dp))
                 }
 
             }
-            //navController.navigate(route = MovieScreens.FavScreen.name)
         }
     }
 
