@@ -3,7 +3,7 @@ package com.example.movieapplication2
 
 import androidx.compose.runtime.mutableStateListOf
 import androidx.lifecycle.ViewModel
-import at.ac.fhcampuswien.movieapplication.models.Movie
+import com.example.movieapplication2.models.Movie
 //import com.example.vomovie.models.Movie
 
 class MovieViwModel : ViewModel(){
@@ -12,7 +12,7 @@ class MovieViwModel : ViewModel(){
     fun addMovie(movie: Movie){
         movies.add(movie)
     }
-    fun removeMovie(movie:Movie){
+    fun removeMovie(movie: Movie){
         movies.remove(movie)
     }
     fun getAllMovies(): List<Movie>{

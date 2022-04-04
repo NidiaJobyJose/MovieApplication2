@@ -1,4 +1,4 @@
-package at.ac.fhcampuswien.movieapplication.models
+package com.example.movieapplication2.models
 
 data class Movie(
     val id: String,

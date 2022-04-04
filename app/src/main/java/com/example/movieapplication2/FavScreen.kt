@@ -13,8 +13,8 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-import at.ac.fhcampuswien.movieapplication.models.Movie
-import at.ac.fhcampuswien.movieapplication.models.getMovies
+import com.example.movieapplication2.models.Movie
+import com.example.movieapplication2.models.getMovies
 
 
 @Composable

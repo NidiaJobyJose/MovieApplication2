@@ -13,7 +13,6 @@ import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.KeyboardArrowDown
 import androidx.compose.material.icons.filled.KeyboardArrowUp
 import androidx.compose.runtime.*
@@ -22,10 +21,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import at.ac.fhcampuswien.movieapplication.models.Movie
-import at.ac.fhcampuswien.movieapplication.models.getMovies
+import com.example.movieapplication2.models.Movie
+import com.example.movieapplication2.models.getMovies
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 
@@ -67,7 +65,7 @@ fun MovieRow(
                     model = ImageRequest.Builder(LocalContext.current)
                         .data(movie.images[0])
                         .build(),
-                    contentDescription = "Profil Pic",
+                    contentDescription = "Displaying Pic",
                     contentScale = ContentScale.Crop,
                     modifier = Modifier.size(64.dp).clip(CircleShape)
                 )

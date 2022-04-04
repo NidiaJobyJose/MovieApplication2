@@ -1,4 +1,4 @@
-package at.ac.fhcampuswien.movieapplication
+package com.example.movieapplication2
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -12,10 +12,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-import at.ac.fhcampuswien.movieapplication.models.Movie
-import at.ac.fhcampuswien.movieapplication.models.getMovies
-import com.example.movieapplication2.HorizontalScrollImages
-import com.example.movieapplication2.MovieRow
+import com.example.movieapplication2.models.Movie
+import com.example.movieapplication2.models.getMovies
 
 
 @Preview(showBackground = true)
@@ -73,5 +71,5 @@ fun MainContent(movie: Movie){
 }
 
 fun movieFilter(movieId: String?) : Movie {
-    return getMovies().filter {movie -> movie.id == movieId }[0]
+    return getMovies().filter { movie -> movie.id == movieId }[0]
 }

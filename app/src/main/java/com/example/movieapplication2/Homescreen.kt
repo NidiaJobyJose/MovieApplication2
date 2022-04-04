@@ -11,16 +11,17 @@ import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-import at.ac.fhcampuswien.movieapplication.models.Movie
-import at.ac.fhcampuswien.movieapplication.models.getMovies
+import com.example.movieapplication2.models.Movie
+import com.example.movieapplication2.models.getMovies
 import com.example.movieapplication2.ui.theme.MovieApplication2Theme
 
 
 @Composable
 fun HomeScreen(navController: NavController = rememberNavController(),
-               /*myViewModel: MovieViwModel = viewModel()*/){
+               myViewModel: MovieViwModel = viewModel()){
     MyAppBar(navController = navController) {
         MainContent(navController = navController)
     }
@@ -30,7 +31,7 @@ fun HomeScreen(navController: NavController = rememberNavController(),
 fun MainContent(navController: NavController, movies: List<Movie> = getMovies()){
     LazyColumn{
         items(items = movies){ movie ->
-            MovieRow(movie = movie) { movieId ->
+            MovieRow( movie = movie){ movieId ->
                 Log.d("MainContent", "My callback value: $movieId")
                 navController.navigate(route = MovieScreens.DetailScreen.name + "/$movieId")
             }
@@ -73,9 +74,8 @@ fun MyAppBar(navController: NavController, content: @Composable () -> Unit) {
         }) {
 
             content()
-            //val movies = getMovies()
-            //MainContent(movies)
+            /*val movies = getMovies()
+            MainContent(movies)*/
         }
     }
 }
-
