@@ -64,4 +64,8 @@ dependencies {
 
     //Coil
     implementation "io.coil-kt:coil-compose:$coil_version"
+
+    //ViewModel
+    implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycle_version"
+
 }
