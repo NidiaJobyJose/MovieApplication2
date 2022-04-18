@@ -12,7 +12,8 @@ data class Movie(
     val rating: String,
     val liked: Boolean = false)
 
-var moviesList = mutableListOf<Movie>(
+fun getMovies(): List<Movie> {
+    return listOf(
 
         Movie(id = "tt0499549",
             title = "Avatar",
@@ -140,11 +141,5 @@ var moviesList = mutableListOf<Movie>(
             rating = "9.5"),
 
         )
-
-fun getMovies(): List<Movie> {
-    return moviesList
 }
 
-object LikedMovies {
-    var likedMovies = mutableListOf<Movie>()
-}

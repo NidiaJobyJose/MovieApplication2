@@ -1,68 +1,47 @@
 package com.example.movieapplication2
 
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.ExperimentalComposeUiApi
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.BlendMode.Companion.Screen
-import androidx.navigation.NavHostController
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import coil.annotation.ExperimentalCoilApi
-import com.example.movieapplication2.feed.MoviesScreen
-import com.example.movieapplication2.feed.MoviesScreenViewModel
 
 
-@ExperimentalComposeUiApi
-@ExperimentalCoilApi
-@ExperimentalMaterialApi
 @Composable
-fun Navigation(
-    navController: NavHostController,
-    cardsViewModel: MoviesScreenViewModel
-) {
-    NavHost(
-        navController = navController,
-        startDestination = Screen.MoviesFeed.route,
-        modifier = Modifier.fillMaxSize(),
+fun MovieNavigation(){
+    val navController = rememberNavController()
 
-        ) {
-        composable(Screen.MoviesFeed.route) {
-            MoviesScreen(
-                onNavigate = navController::navigate,
-                onNavigateUp = {},
-                viewModel = cardsViewModel
-            )
-        }
-        composable(Screen.FavouriteScreen.route) {
-            FavouriteMoviesScreen(
-                onNavigate = navController::navigate,
-                onNavigateUp = {navController.popBackStack()},
-                viewModel = cardsViewModel
-            )
-        }
+    val favViewModel: FavouritesViewModel = viewModel()
+
+    NavHost(navController = navController, startDestination = MovieScreens.HomeScreen.name){
         composable(
-            route = MovieScreens.DetailScreen.route + "/{movieId}",
-            arguments = listOf(
-                navArgument("movieId") {
-                    type = NavType.StringType
-                },
-            )
+            route = MovieScreens.HomeScreen.name
         ) {
-            val movieId = it.arguments?.getString("movieId")!!
-            MovieDetailScreen(
-                onNavigateUp = navController::navigateUp,
-                movieId = movieId,
-                viewModel = cardsViewModel
-            )
+            HomeScreen(navController, favViewModel)
+        }
+
+        composable(
+            route= MovieScreens.DetailScreen.name + "/{movieId}",
+            arguments = listOf(navArgument("movieId"){
+                type = NavType.StringType
+            })
+        ) {
+                backStackEntry -> DetailScreen(navController = navController,
+            movieId = backStackEntry.arguments?.getString("movieId"),
+            viewModel = favViewModel)
+        }
+
+        composable(
+            route= MovieScreens.FavouritesScreen.name
+        ) {
+            FavouritesScreen(navController = navController, viewModel = favViewModel)
         }
     }
 }
-/*
-import androidx.compose.runtime.Composable
+
+/*import androidx.compose.runtime.Composable
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
@@ -74,7 +53,7 @@ import androidx.navigation.navArgument
 @Composable
 fun MovieNav(){
     val navController = rememberNavController()
-    val myViewModel: MovieViwModel = viewModel()
+    val favViewModel: FavouritesViewModel = viewModel()
 
     NavHost(navController = navController, startDestination = MovieScreens.HomeScreen.name){
 
@@ -92,10 +71,11 @@ fun MovieNav(){
             ){ backStackEntry ->
 
 
-            DetailScreen(navController = navController,
+            MovieScreens.DetailScreen(
+                navController = navController,
                 movieId = backStackEntry.arguments?.getString("movie"),
                 //myViewModel = myViewModel
-        )
+            )
         }
 
         composable(MovieScreens.FavScreen.name){

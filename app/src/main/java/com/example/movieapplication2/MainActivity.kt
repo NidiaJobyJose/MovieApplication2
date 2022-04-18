@@ -10,7 +10,7 @@ import androidx.compose.material.icons.filled.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.movieapplication2.HomeScreen
-import com.example.movieapplication2.MovieNav
+//import com.example.movieapplication2.MovieNav
 import com.example.movieapplication2.ui.theme.MovieApplication2Theme
 
 class MainActivity : ComponentActivity() {
@@ -19,7 +19,7 @@ class MainActivity : ComponentActivity() {
         setContent {
 
             //MyAppBar{
-            MovieNav()
+            //MovieNav()
             //}
 
         }
