@@ -255,4 +255,4 @@ fun DefaultPreview() {
         MainContent(movieList = getMovies())
     }
 }*/
-
+*/
