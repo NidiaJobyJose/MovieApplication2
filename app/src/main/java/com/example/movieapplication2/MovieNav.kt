@@ -9,8 +9,9 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 
 
+
 @Composable
-fun MovieNavigation(){
+fun MovieNav(){
     val navController = rememberNavController()
 
     val favViewModel: FavouritesViewModel = viewModel()

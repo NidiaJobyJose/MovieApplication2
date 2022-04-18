@@ -15,7 +15,6 @@ class FavouritesViewModel : ViewModel() {
     fun addFav(movie: Movie){
         if(!_favMovies.contains(movie)) _favMovies.add(movie)
 
-        //DEBUG: print movie titles to console
         for(movie in _favMovies){
             Log.i("FavouritesViewModel", movie.title)
         }

@@ -23,7 +23,6 @@ fun FavouritesScreen(navController: NavController = rememberNavController(), vie
 
     val favs = viewModel.getFavs()
 
-    //DEBUG: print movie titles to console
     for(movie in favs){
         Log.i("FavouritesScreen", movie.title)
     }
