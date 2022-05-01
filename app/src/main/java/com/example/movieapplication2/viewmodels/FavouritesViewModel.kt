@@ -1,4 +1,4 @@
-package com.example.movieapplication2
+package com.example.movieapplication2.viewmodels
 
 import android.util.Log
 import androidx.compose.runtime.mutableStateListOf

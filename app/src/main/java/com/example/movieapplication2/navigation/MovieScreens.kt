@@ -1,4 +1,4 @@
-package com.example.movieapplication2
+package com.example.movieapplication2.navigation
 
 
 enum class MovieScreens {
